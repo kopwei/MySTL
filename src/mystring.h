@@ -1,4 +1,3 @@
-#pragma once
 // FILE: mystring.h
 // CLASS PROVIDED: mystring (a sequence of characters)
 //
