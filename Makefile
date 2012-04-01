@@ -4,16 +4,27 @@ CC=g++
 
 CFLAGS = -c -Wall
 
-all: MySTL
+OBJECTS = out/Main.o out/mystring.o
 
-MySTL: Main.o mystring.o
-	$(CC) Main.o mystring.o -o MySTL
+all: bin/MySTL
 
-Main.o: src/Main.cpp
-	$(CC) $(CFLAGS) src/Main.cpp
+bin/MySTL: $(OBJECTS) | bin
+	$(CC) $(OBJECTS) -o bin/MySTL
 
-mystring.o: src/mystring.cpp
-	$(CC) $(CFLAGS) src/mystring.cpp
+out/Main.o: src/Main.cpp | out
+	$(CC) $(CFLAGS) src/Main.cpp -o out/Main.o
 
+out/mystring.o: src/mystring.cpp | out
+	
+	$(CC) $(CFLAGS) src/mystring.cpp -o out/mystring.o
+
+out:
+	mkdir -p out
+
+bin:
+	mkdir -p bin
+
+.PHONY: clean
 clean:
-	rm -rf *o MySTL
+	rm -rf bin
+	rm -rf out
