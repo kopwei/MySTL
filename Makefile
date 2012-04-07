@@ -2,7 +2,7 @@
 CC=g++
 #Hey! i am comment
 
-CFLAGS = -c -Wall
+CFLAGS = -g -c -Wall
 
 OBJECTS = out/Main.o out/mystring.o
 
