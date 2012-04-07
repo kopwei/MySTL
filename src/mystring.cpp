@@ -1,6 +1,7 @@
 
 #include "mystring.h"
 #include <assert.h>
+#include <string.h>
 
 using namespace std;
 
